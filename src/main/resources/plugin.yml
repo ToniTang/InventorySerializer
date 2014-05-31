@@ -1,0 +1,10 @@
+author: ToniTang
+name: InventorySerializer
+main: us.rpvp.inventoryserializer.InventorySerializer
+url: http://realmsofpvp.net/
+version: ${project.version}
+
+commands:
+  kit:
+    usage: /kit <arguments>
+    description: InventorySerializer Main Command

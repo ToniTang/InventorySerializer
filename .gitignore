@@ -1,0 +1,12 @@
+# IntelliJ Related Files
+*.iml
+.idea/
+
+# Precompiled sources should not be pushed
+target/
+
+# Eclipse Project Files
+.classpath
+.project
+*.eml
+*.userlibraries
