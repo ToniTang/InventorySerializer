@@ -25,7 +25,7 @@ import java.util.ListIterator;
 // For 1.7.9
 public class ItemSerialization {
 
-	// Current serialization version - we will use this to handle compatiblity
+	// Current serialization version - we will use this to handle compatibility
 	private static final int VERSION = 1;
 
 	// Types we can serialize

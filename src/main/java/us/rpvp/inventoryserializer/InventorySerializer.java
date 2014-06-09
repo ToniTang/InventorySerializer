@@ -10,7 +10,7 @@ public class InventorySerializer extends JavaPlugin {
 	public void onEnable() {
 		instance = this;
 		getCommand("kit").setExecutor(new InventorySerializerCmd());
-    }
+	}
 
 	public void onDisable() {
 		instance = null;
