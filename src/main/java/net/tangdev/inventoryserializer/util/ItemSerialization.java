@@ -1,12 +1,12 @@
-package us.rpvp.inventoryserializer.util;
+package net.tangdev.inventoryserializer.util;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Iterables;
-import net.minecraft.server.v1_7_R3.*;
+import net.minecraft.server.v1_7_R4.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_7_R3.inventory.CraftInventoryCustom;
-import org.bukkit.craftbukkit.v1_7_R3.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_7_R4.inventory.CraftInventoryCustom;
+import org.bukkit.craftbukkit.v1_7_R4.inventory.CraftItemStack;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
@@ -66,7 +66,7 @@ public class ItemSerialization {
 		for(int i = 0; i < size; i++) {
 			NBTTagCompound outputObject = new NBTTagCompound();
 			CraftItemStack craft = getCraftVersion(inventory.getItem(i));
-			net.minecraft.server.v1_7_R3.ItemStack nmsCopy = CraftItemStack.asNMSCopy(craft);
+			net.minecraft.server.v1_7_R4.ItemStack nmsCopy = CraftItemStack.asNMSCopy(craft);
 
 			// Convert the item stack to a NBT compound
 			if(nmsCopy != null) {
@@ -103,11 +103,11 @@ public class ItemSerialization {
 		Inventory inventory = new CraftInventoryCustom(null, itemList.size());
 
 		for(int i = 0; i < itemList.size(); i++) {
-			NBTTagCompound inputObject = (NBTTagCompound) itemList.get(i);
+			NBTTagCompound inputObject = itemList.get(i);
 
 			if(!inputObject.isEmpty()) {
 				inventory.setItem(i, CraftItemStack.asCraftMirror(
-					net.minecraft.server.v1_7_R3.ItemStack.createStack(inputObject)));
+					net.minecraft.server.v1_7_R4.ItemStack.createStack(inputObject)));
 			}
 		}
 		// Handle different types
@@ -178,6 +178,7 @@ public class ItemSerialization {
 	}
 
 	private static class OfflinePlayerInventry extends ForwardingInventory implements PlayerInventory {
+
 		private int heldItemSlot;
 		private String playerName;
 
@@ -225,7 +226,7 @@ public class ItemSerialization {
 
 		@Override
 		public ItemStack getBoots() {
-			return getItem(getSize() + 0);
+			return getItem(getSize());
 		}
 
 		@Override
@@ -257,7 +258,7 @@ public class ItemSerialization {
 
 		@Override
 		public void setBoots(ItemStack boots) {
-			setItem(getSize() + 0, boots);
+			setItem(getSize(), boots);
 		}
 
 		@Override
@@ -289,6 +290,7 @@ public class ItemSerialization {
 	}
 
 	private static class ForwardingInventory implements Inventory {
+
 		protected Inventory delegate;
 		protected InventoryType type;
 

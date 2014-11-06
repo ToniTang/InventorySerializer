@@ -1,10 +1,10 @@
-package us.rpvp.inventoryserializer.cmd.args;
+package net.tangdev.inventoryserializer.command.arguments;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import us.rpvp.inventoryserializer.cmd.InventorySerializerCmd;
-import us.rpvp.inventoryserializer.util.KitsManager;
+import net.tangdev.inventoryserializer.command.InventorySerializerCmd;
+import net.tangdev.inventoryserializer.util.KitsManager;
 
 public class Remove implements InventorySerializerCmd.CommandHandler {
 

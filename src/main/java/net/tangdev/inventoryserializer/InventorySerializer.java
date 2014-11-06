@@ -1,7 +1,7 @@
-package us.rpvp.inventoryserializer;
+package net.tangdev.inventoryserializer;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import us.rpvp.inventoryserializer.cmd.InventorySerializerCmd;
+import net.tangdev.inventoryserializer.command.InventorySerializerCmd;
 
 public class InventorySerializer extends JavaPlugin {
 

@@ -1,19 +1,19 @@
-package us.rpvp.inventoryserializer.cmd;
+package net.tangdev.inventoryserializer.command;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import us.rpvp.inventoryserializer.cmd.args.Create;
-import us.rpvp.inventoryserializer.cmd.args.Give;
-import us.rpvp.inventoryserializer.cmd.args.Remove;
-import us.rpvp.inventoryserializer.cmd.args.Update;
+import net.tangdev.inventoryserializer.command.arguments.Create;
+import net.tangdev.inventoryserializer.command.arguments.Give;
+import net.tangdev.inventoryserializer.command.arguments.Remove;
+import net.tangdev.inventoryserializer.command.arguments.Update;
 
 import java.util.*;
 
 public class InventorySerializerCmd implements CommandExecutor {
 
-	Map<String, CommandHandler> cmdMap = new HashMap<>();
+	private Map<String, CommandHandler> cmdMap = new HashMap<>();
 
 	public interface CommandHandler {
 		public void execute(CommandSender sender, String[] args);
@@ -28,7 +28,7 @@ public class InventorySerializerCmd implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		if(cmd.getName().equalsIgnoreCase("kit") && sender.isOp()) {
+		if(cmd.getName().equalsIgnoreCase("kit") || sender.isOp() || sender.hasPermission("invserializer.kit")) {
 			if(args.length > 0) {
 				if(cmdMap.containsKey(args[0].toLowerCase())) {
 					cmdMap.get(args[0].toLowerCase()).execute(sender, args);
