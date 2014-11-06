@@ -20,4 +20,3 @@ public class InventorySerializer extends JavaPlugin {
 		return instance;
 	}
 }
-
